@@ -1,0 +1,11 @@
+<header id="header">
+    <a href="/">Example HTMX static website</a>
+    <nav id="navigation">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/foo.html" hx-get="/foo.html.part" hx-target="#part" hx-push-url="/foo.html">Foo</a></li>
+            <li><a href="/bar.html" hx-get="/bar.html.part" hx-target="#part" hx-push-url="/bar.html">Bar</a></li>
+        </ul>
+    </nav>
+</header>
+<article id="part">
