@@ -5,13 +5,14 @@ include makefiles/utils.mk
 
 # Options
 BUILDDIR					:= docs
+# BASEURL					:= https://user.github.io/repo
 
 
 # Extensions
 EXT_MARKDOWN_DESTDIR		:= $(BUILDDIR)
 EXT_MARKDOWN_OPTIONS    	:= -M document-css=true \
 							-M mainfont="Arial, 'Helvetica Neue', Helvetica, sans-serif" \
-							--css=/style.css \
+							--css=$(BASEURL)/style.css \
 							--template=template.html5 \
 							--shift-heading-level-by=1 \
 							--include-in-header=partials/scripts.html \
@@ -26,7 +27,8 @@ include	makefiles/serve.mk
 
 
 # Actions
-all: markdown styles
+all: markdown styles Makefile
+	sed -i 's/\$$BASEURL\$$/$(subst /,\/,$(BASEURL))/g' $(BUILDDIR)/*.html
 
 styles: $(BUILDDIR)/style.css
 .PHONY: styles
@@ -42,7 +44,7 @@ develop:
 	 	--workdir /home/root/ \
 		--platform linux/arm64 \
 		--publish 8000:8000 \
-		nixery.dev/arm64/shell/gnumake/pandoc/python3 \
+		nixery.dev/arm64/shell/gnumake/gnused/pandoc/python3 \
 		$(targetargs)
 .PHONY: develop
 	
