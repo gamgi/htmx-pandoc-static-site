@@ -1,0 +1,35 @@
+#header {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid black;
+}
+
+#header > a {
+    flex-grow: 1;
+    display: block;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 640px) {
+    #header-name {
+        font-size: 1.2rem;
+    }
+}
+
+#navigation {
+    flex-basis: 0;
+}
+
+#navigation ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+#navigation ul li {
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0 0.5rem 0 0.5rem;
+}

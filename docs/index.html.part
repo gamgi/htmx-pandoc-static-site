@@ -1,0 +1,5 @@
+<header id="title-block-header">
+<h1 class="title">Hello World</h1>
+</header>
+<h2 id="hello-world">Hello World</h2>
+<p>This is an example static site.</p>
